@@ -33,7 +33,7 @@ The goal of this lab is to:
 Use the provided script to generate `.mol` files:
 
 ```bash
-# from /scripts directory
+# from repo/scripts directory
 python3 smi_to_mol.py
 ```
 
