@@ -33,12 +33,14 @@ The goal of this lab is to:
 Use the provided script to generate `.mol` files:
 
 ```bash
-python scripts/smi_to_mol.py
+# from /scripts directory
+python3 smi_to_mol.py
 ```
 
 Then once its made you should have a new directory with all the .mol files `files/mols`. You need to then use openbabel to convert all the mol files into a single .mol2 file. If you change the name of any of these files then the executable based on main.cpp won't be able to find it so you can just update the names then.
 
 ```bash
+# from /repo directory
 obabel -imol files/mols/*.mol -O files/mols.mol2
 ```
 
