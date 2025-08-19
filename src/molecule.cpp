@@ -5,7 +5,6 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <omp.h>
 
 Molecule::AtomID Molecule::add_atom(const std::string& element, double x, double y, double z) {
     int atomic_number = get_atomic_number(element);
@@ -103,14 +102,36 @@ std::vector<Molecule> load_from_mol2(const std::string& filename) {
     return molecules;
 }
 
-std::vector<std::vector<double>> geometric_centroid(const std::vector<Molecule>& mols)
-{
-    // Calculate the geometric cetroind for each molecule in mols.
-}
-
 std::vector<Molecule> filter_molecules(const std::vector<Molecule>& mols)
 {
-    // Apply 2 filters to the list of molecules:
+    // Apply 3 filters to the list of molecules:
     // 1. Only molecules with atoms <= 25 are allowed.
     // 2. Only molecules with ALL single bonds are allowed.
+    // 3. Only molecules with more than 1 HBA and 1 HBD are allowed.
+}
+
+int Molecule::countHBondAcceptors() const {
+    int count = 0;
+    // Complete this function!
+    return count;
+}
+
+int Molecule::countHBondDonors() const {
+    int count = 0;
+    // Complete this function!
+    return count;
+}
+
+// Helper function
+int get_bond_order(Molecule::AtomID a1, Molecule::AtomID a2, std::vector<Molecule::Bond> bonds)
+{
+    for (auto& bond: bonds) {
+        if (bond.atom1 == a1 && bond.atom2 == a2) {
+            return bond.order;
+        }
+        if (bond.atom1 == a2 && bond.atom2 == a1) {
+            return bond.order;
+        }
+    }
+    return 0;
 }

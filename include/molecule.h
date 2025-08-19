@@ -27,6 +27,8 @@ class Molecule {
         const std::vector<Atom>& get_atoms() const;
         const std::vector<Bond>& get_bonds() const;
         std::vector<AtomID> neighbors(AtomID id) const;
+        int countHBondAcceptors() const;
+        int countHBondDonors() const;
         bool empty() const;
     
     private:
