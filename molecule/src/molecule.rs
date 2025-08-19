@@ -76,48 +76,13 @@ impl Molecule {
 
     pub fn count_hbond_acceptors(&self) -> i32 {
         let mut count = 0;
-
-        for atom in &self.atoms {
-            let neighbor_ids = self.neighbors(atom.id);
-            let total_bond_order: i32 = neighbor_ids
-                .iter()
-                .map(|&nid| get_bond_order(atom.id, nid, &self.bonds))
-                .sum();
-
-            if atom.element == "N" && total_bond_order == 3 {
-                count += 1;
-            }
-            if atom.element == "O" && total_bond_order == 2 {
-                count += 1;
-            }
-        }
-
+        // Complete this function!
         count
     }
 
     pub fn count_hbond_donors(&self) -> i32 {
         let mut count = 0;
-
-        for atom in &self.atoms {
-            let neighbor_ids = self.neighbors(atom.id);
-            let total_bond_order: i32 = neighbor_ids
-                .iter()
-                .map(|&nid| get_bond_order(atom.id, nid, &self.bonds))
-                .sum();
-
-            if atom.element == "N" && total_bond_order == 3 {
-                if neighbor_ids.iter().any(|&nid| self.atoms[nid].element == "H") {
-                    count += 1;
-                }
-            }
-
-            if atom.element == "O" && total_bond_order == 2 {
-                if neighbor_ids.iter().any(|&nid| self.atoms[nid].element == "H") {
-                    count += 1;
-                }
-            }
-        }
-
+        // Complete this function!
         count
     }
 }
