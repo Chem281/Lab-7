@@ -58,7 +58,7 @@ A HBond donor for our purposes is an Oxygen or Nitrogen atom with a full valency
 A HBond acceptor for our purposes is an Oxygen or Nitrogen atom with a full valency. The way we would look for them is by checking if the total bond order of an Oxygen is 2. For Nitrogens the total bond order would be 3.
 
 Note: A double bonded Oxygen has a bond order of 2.
-Note: An atom can be considered both an acceptor and a donor. Example: Water.
+Note: An atom can be considered both an acceptor and a donor. Example: Water oxygen.
 
 Build and run the executable `./mol_exe` from the build.
 ```bash
